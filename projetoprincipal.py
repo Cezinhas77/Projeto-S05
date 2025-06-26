@@ -1,4 +1,6 @@
 import peao
+import cavalo
+
 
 def matriz_tabuleiro(tabuleiro):
     print("\n  1  2  3  4  5  6  7  8")  #coluna
@@ -40,7 +42,11 @@ while True:
         print('')
 
     elif peca == "CB":
-        print('')
+        if cavalo.movimento_cavalo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
+            tabuleiro[destino_linha][destino_coluna] = "CB"
+            tabuleiro[origem_linha][origem_coluna] = "--"
+        else:
+            print("Movimento inválido para o Cavalo!")
 
     elif peca == "BP":
         print('')
