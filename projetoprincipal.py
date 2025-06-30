@@ -1,5 +1,6 @@
 import peao
 import cavalo
+import torre
 
 
 def matriz_tabuleiro(tabuleiro):
@@ -39,7 +40,11 @@ while True:
             print("Movimento inválido para o Peão!")
 
     elif peca == "TB":
-        print('')
+        if torre.movimento_torre(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
+            tabuleiro[destino_linha][destino_coluna] = "TB"
+            tabuleiro[origem_linha][origem_coluna] = "--"
+        else:
+            print("Movimento inválido para a Torre!")
 
     elif peca == "CB":
         if cavalo.movimento_cavalo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
