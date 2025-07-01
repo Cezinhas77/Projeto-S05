@@ -2,6 +2,7 @@ import peao
 import cavalo
 import torre
 import bispo
+import rainha
 
 
 def matriz_tabuleiro(tabuleiro):
@@ -65,7 +66,11 @@ while True:
         print('')
 
     elif peca == "QB":
-        print('')
+        if rainha.movimento_rainha(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
+            tabuleiro[destino_linha][destino_coluna] = 'QB'
+            tabuleiro[origem_linha][origem_coluna] = '--'
+        else:
+            print('Movimento inválido para a Rainha!')
 
     else:
         print("Peça não encontrada")
