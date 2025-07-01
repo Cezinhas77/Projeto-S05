@@ -1,6 +1,7 @@
 import peao
 import cavalo
 import torre
+import bispo
 
 
 def matriz_tabuleiro(tabuleiro):
@@ -54,7 +55,11 @@ while True:
             print("Movimento inválido para o Cavalo!")
 
     elif peca == "BP":
-        print('')
+        if bispo.movimento_bispo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
+            tabuleiro[destino_linha][destino_coluna] = 'BP'
+            tabuleiro[origem_linha][origem_coluna] = '--'
+        else:
+            print('Movimento inválido para o Bispo!')
 
     elif peca == "KP":
         print('')
