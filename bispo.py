@@ -1,6 +1,6 @@
 def movimento_bispo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):
     
-    if tabuleiro[origem_linha][origem_coluna] != "BP":
+    if tabuleiro[origem_linha][origem_coluna] != "BB":
         return False
 
     delta_linha = abs(destino_linha - origem_linha)
