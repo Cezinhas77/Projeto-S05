@@ -5,6 +5,7 @@ import cavalo
 import torre
 import bispo
 import rainha
+import rei
 
 #função que exibe o tabuleiro 
 
@@ -17,6 +18,7 @@ def matriz_tabuleiro(tabuleiro):
         print(linha)                            #imprime a linha 
 
 #tabuleiro
+
 tabuleiro = [
     ["--", "--", "--", "--", "--", "--", "--", "--"],
     ["--", "--", "--", "--", "--", "--", "--", "--"],
@@ -28,7 +30,8 @@ tabuleiro = [
     ["TB", "CB", "BB", "KB", "QB", "BB", "CB", "TB"]
 ]
 
-#inputs
+#entradas e condicionais
+
 while True:
     matriz_tabuleiro(tabuleiro)                                     #chama a função e exibe o tabuleiro 
     peca = input("\nQual peça deseja mover?: ").upper()             #nome da peça
@@ -38,42 +41,46 @@ while True:
     destino_coluna = int(input("Coluna de destino (1-8): ")) - 1
 
     if peca == "PB":
-        if peao.movimento_peao(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):  #chama a função e faz a verificação
+        if peao.movimento_peao(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):      #chama a função e faz a verificação
             tabuleiro[destino_linha][destino_coluna] = "PB"     #atualiza e move o peão caso o movimento seja válido
             tabuleiro[origem_linha][origem_coluna] = "--"       #atualiza a linha e a coluna de origem para vazia
         else:
-            print("\nMovimento inválido para o Peão!")
+            print("\nMovimento inválido para o Peão!")          #movimento inválido
 
-    elif peca == "TB":
-        if torre.movimento_torre(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):        #torre branca
-            tabuleiro[destino_linha][destino_coluna] = "TB"
-            tabuleiro[origem_linha][origem_coluna] = "--"
+    elif peca == "TB":      #torre branca
+        if torre.movimento_torre(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):        #chama a função e faz a verificação       
+            tabuleiro[destino_linha][destino_coluna] = "TB"       #atualiza e move a torre caso o movimento seja válido
+            tabuleiro[origem_linha][origem_coluna] = "--"        #atualiza a linha e a coluna de origem para vazia   
         else:
-            print("\nMovimento inválido para a Torre!")
+            print("\nMovimento inválido para a Torre!")         #movimento inválido
 
-    elif peca == "CB":
-        if cavalo.movimento_cavalo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):      #cavalo branco
-            tabuleiro[destino_linha][destino_coluna] = "CB"
-            tabuleiro[origem_linha][origem_coluna] = "--"
+    elif peca == "CB":      #cavalo branco
+        if cavalo.movimento_cavalo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):      #chama a função e faz a verificação      
+            tabuleiro[destino_linha][destino_coluna] = "CB"     #atualiza e move o cavalo caso o movimento seja válido
+            tabuleiro[origem_linha][origem_coluna] = "--"       #atualiza a linha e a coluna de origem para vazia   
         else:
             print("\nMovimento inválido para o Cavalo!")
 
-    elif peca == "BB":
-        if bispo.movimento_bispo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):        #bispo branco
-            tabuleiro[destino_linha][destino_coluna] = 'BB'
-            tabuleiro[origem_linha][origem_coluna] = '--'
+    elif peca == "BB":      #bispo branco
+        if bispo.movimento_bispo(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):        #chama a função e faz a verificação        
+            tabuleiro[destino_linha][destino_coluna] = 'BB'     #atualiza e move o bispo caso o movimento seja válido
+            tabuleiro[origem_linha][origem_coluna] = '--'       #atualiza a linha e a coluna de origem para vazia   
         else:
-            print('\nMovimento inválido para o Bispo!')
+            print('\nMovimento inválido para o Bispo!')         #movimento inválido
 
-    elif peca == "KB":      #rei branco (ainda não implementado)
-        print('')
-
-    elif peca == "QB":
-        if rainha.movimento_rainha(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):      #rainha branca
-            tabuleiro[destino_linha][destino_coluna] = 'QB'
-            tabuleiro[origem_linha][origem_coluna] = '--'
+    elif peca == "KB":      #rei branco
+        if rei.movimento_rei(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):        #chama a função e faz a verificação        
+            tabuleiro[destino_linha][destino_coluna] = 'KB'     #atualiza e move o rei caso o movimento seja válido
+            tabuleiro[origem_linha][origem_coluna] = '--'       #atualiza a linha e a coluna de origem para vazia   
         else:
-            print('\nMovimento inválido para a Rainha!')
+            print('\nMovimento inválido para o Rei!')           #movimento inválido
+
+    elif peca == "QB":       #rainha branca
+        if rainha.movimento_rainha(tabuleiro, origem_linha, origem_coluna, destino_linha, destino_coluna):      #chama a função e faz a verificação     
+            tabuleiro[destino_linha][destino_coluna] = 'QB'     #atualiza e move a rainha caso o movimento seja válido
+            tabuleiro[origem_linha][origem_coluna] = '--'       #atualiza a linha e a coluna de origem para vazia
+        else:
+            print('\nMovimento inválido para a Rainha!')        #movimento inválido
 
     else:
         print("\nPeça não encontrada")      #se a peça não for reconhecida printa que a peça não foi encontrada
