@@ -21,6 +21,6 @@ def movimento_cavalo(tabuleiro, origem_linha, origem_coluna, destino_linha, dest
             if len(peca_destino) == 2 and peca_destino[1] == "B":
                 return False  # Não pode mover para cima de outra peça branca
             else:
-                return True  # Casa vazia ou com inimigo (quando tiver)
+                return True  # Casa vazia
 
     return False  # Movimento inválido
