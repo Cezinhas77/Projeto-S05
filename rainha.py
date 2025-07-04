@@ -78,6 +78,3 @@ def movimento_rainha (tabuleiro, origem_linha, origem_coluna, destino_linha, des
 # ------------------------------------FIM DO CÓDIGO-----------------------------------------------------------------------------
         
 
-
-
-
